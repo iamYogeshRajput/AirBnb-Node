@@ -1,0 +1,10 @@
+const path = require('path');
+
+module.exports = {
+    seedersPath: path.resolve('./src/db/seeders'),
+    modelsPath: path.resolve('./src/db/models'),
+    migrationsPath: path.resolve('./src/db/migrations'),
+    // instead of config.json we js file as we will be 
+    // able to access .env with the help of this
+    config: path.resolve('./src/config/sequelize.config.js'),
+}
