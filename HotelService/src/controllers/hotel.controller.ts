@@ -1,4 +1,3 @@
-import { Status } from 'http';
 import { StatusCodes } from 'http-status-codes';
 import { Request,Response,NextFunction } from "express";
 import { createHotelService, getAllHotelsService, getHotelByIdService } from "../service/hotel.service";
