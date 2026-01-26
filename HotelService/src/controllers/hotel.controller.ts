@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { Request,Response,NextFunction } from "express";
-import { createHotelService, getAllHotelsService, getHotelByIdService } from "../service/hotel.service";
+import { createHotelService, deleteHotelByIdService, getAllHotelsService, getHotelByIdService } from "../service/hotel.service";
 
 export async function createHotelHandler(req : Request, res:Response, next:NextFunction){
      // 1.call the service function
@@ -35,3 +35,14 @@ export async function getAllHotelsHandler(req : Request, res:Response, next:Next
             success:true
         });
 }
+
+export async function deleteHotelByIdHandler(req : Request, res:Response, next:NextFunction){
+    // 1.call the service function
+    await deleteHotelByIdService(Number(req.params.id));
+    // 2.send the response
+    res.status(StatusCodes.OK).json({
+        message : "Hotel deleted successfully",
+        success:true
+    });
+}
+

@@ -24,9 +24,16 @@ export async function getHotelById(id:number){
     return hotel;
 }
 
-// make a function getAllHotels to fetch all hotels from the database
 export async function getAllHotels(){
     const hotels = await Hotel.findAll();
     logger.info(`Fetched all hotels, count: ${hotels.length}`);
     return hotels;
+}
+
+
+export async function deleteHotelById(id: number) {
+    const hotel = await getHotelById(id);
+    await hotel.destroy();
+    logger.info(`Hotel deleted successfully: ${id}`);
+    return;
 }
