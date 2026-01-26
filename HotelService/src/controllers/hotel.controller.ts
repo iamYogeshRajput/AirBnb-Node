@@ -1,10 +1,13 @@
+import { Status } from 'http';
+import { StatusCodes } from 'http-status-codes';
 import { Request,Response,NextFunction } from "express";
-import { createHotelService, getHotelByIdService } from "../service/hotel.service";
+import { createHotelService, getAllHotelsService, getHotelByIdService } from "../service/hotel.service";
+
 export async function createHotelHandler(req : Request, res:Response, next:NextFunction){
      // 1.call the service function
      const hotelResponse = await createHotelService(req.body);
     // 2.send the response
-    res.status(201).json({
+    res.status(StatusCodes.CREATED).json({
         message : "Hotel created successfully",
         data:hotelResponse,
         success:true
@@ -15,9 +18,21 @@ export async function getHotelByIdHandler(req : Request, res:Response, next:Next
      // 1.call the service function
      const hotelResponse = await getHotelByIdService(Number(req.params.id));
     // 2.send the response
-    res.status(201).json({
+    res.status(StatusCodes.OK).json({
         message : "Hotel found successfully",
         data:hotelResponse,
         success:true
     });
+}
+
+// make a function getAllHotelsHandler to fetch all hotels
+export async function getAllHotelsHandler(req : Request, res:Response, next:NextFunction){
+        // 1.call the service function
+        const hotelsResponse = await getAllHotelsService();
+         // 2.send the response
+        res.status(StatusCodes.OK).json({
+            message : "Hotels fetched successfully",
+            data:hotelsResponse,
+            success:true
+        });
 }

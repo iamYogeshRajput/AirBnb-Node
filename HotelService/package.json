@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "dev": "nodemon src/server.ts",
-    "migrate":"sequelize-cli db:migrate",
+    "migrate": "sequelize-cli db:migrate",
     "rollback": "sequelize-cli db: migrate:undo"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "http-status-codes": "^2.3.0",
     "mysql2": "^3.16.1",
     "sequelize": "^6.37.7",
     "uuid": "^11.1.0",
