@@ -36,7 +36,7 @@ export async function getAllHotelsHandler(req : Request, res:Response, next:Next
         });
 }
 
-export async function deleteHotelByIdHandler(req : Request, res:Response, next:NextFunction){
+export async function d (req : Request, res:Response, next:NextFunction){
     // 1.call the service function
     await deleteHotelByIdService(Number(req.params.id));
     // 2.send the response
