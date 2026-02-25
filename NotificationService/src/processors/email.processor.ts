@@ -7,7 +7,7 @@ import { MAILER_PAYLOAD } from "../producers/email.producer";
 export const setupMailerWorker = () => {
 
   const emailProcessor = new Worker<NotificationDTO>(
-    MAILER_QUEUE,
+    MAILER_QUEUE, 
     async (job : Job) => {
         if(job.name !== MAILER_PAYLOAD){
             throw new Error("Invalid job name");
@@ -18,7 +18,7 @@ export const setupMailerWorker = () => {
         
     },
     {
-      connection: getRedisConnObject(),
+      connection:  getRedisConnObject(),
     },
   );
 

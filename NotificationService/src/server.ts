@@ -40,7 +40,7 @@ app.listen(serverConfig.PORT, () => {
         subject : "Sample Email",
         templateId: "sample_template",
         params: {
-            name: "Yogesh",
+            name: "Yogesh", 
             orderId: "12345",
         }
     }
